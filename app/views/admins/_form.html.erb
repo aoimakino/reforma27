@@ -1,0 +1,26 @@
+  <% if @admin.errors.any? %>
+    <div id="error_explanation" xmlns="http://www.w3.org/1999/html">
+      <div class="alert-error">
+        <p>The form contains <%= pluralize(@admin.errors.count, "error") %> : </p>
+        <% @admin.errors.full_messages.each do |msg| %>
+        <p><li><%= msg %></li></p>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
+  <%= form_for(@admin) do |f| %>
+    <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+  </div>
+  <div class="actions">
+    <%= f.submit :class=>"btn btn-large btn-inverse btn-index" %>
+  </div>
+<% end %>

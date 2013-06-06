@@ -1,0 +1,50 @@
+<div class="transbox2">
+  <div class='opacity3'></div>
+  <div class='header'>
+    <h2>Clientes</h2>
+  </div>
+  <div class='opacity4'></div>
+  <div class="body">
+    <table>
+      <tr>
+      <th><%= sortable "id", "Orden Servicio" %></th>
+      <th><%= sortable "name", "Nombre" %></th>
+      <th><%= sortable "last_name", "Apellido" %></th>
+      <th><%= sortable "email" %></th>
+      <th><%= sortable "phone", "Tel." %></th>
+      <th><%= sortable "depto", "Dep." %></th>
+      <th><%= sortable "date", "Creado" %></th>
+      <th><%= sortable "status", "Estado"%></th>
+      <th><%= sortable "patch", "Port" %></th>
+      <th><%= sortable "date_modified", "Mod." %></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      </tr>
+
+      <% @clients.each do |client| %>
+      <tr>
+      <td><%= client.id %></td>
+      <td><%= client.name %></td>
+      <td><%= client.last_name %></td>
+      <td><%= client.email %></td>
+      <td><%= client.phone %></td>
+      <td><%= client.depto %></td>
+      <td><%= client.date %></td>
+      <td><%= client.status %></td>
+      <td><%= client.patch %></td>
+      <td><%= client.date_modified %></td>
+
+      <td><%= link_to 'Show', client , class: "btn btn-small btn-inverse"%></td>
+      <td><%= link_to 'Edit', edit_client_path(client), class: "btn btn-small btn-inverse" %></td>
+      <td><%= link_to 'Delete', client, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-small btn-inverse" %></td>
+      </tr>
+      <% end %>
+    </table> <br />
+
+  <%#= link_to 'New Admin', clients_new_admin_path, class: "btn btn-inverse btn-index" %>
+  <%= link_to 'Admins', admins_path, class: "btn btn-inverse btn-index" %>
+  <%= link_to 'Pagos', pagos_path, class: "btn btn-inverse btn-index" %>
+
+  </div>
+</div>

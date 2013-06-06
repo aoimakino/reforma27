@@ -1,0 +1,16 @@
+<a href="#myModal1" role="button" class="btn" data-toggle="modal">LogIn</a>
+<div id="myModal1" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel1">LogIn</h3>
+  </div>
+  <div class="modal-body">
+    <label>Email</label>
+    <input class="span3" type="email" required placeholder="test@example.com">
+    <label>Password</label>
+    <input class="span3" type="password" required placeholder="Type your password">
+  </div>
+  <div class="modal-footer">
+    <button type="submit" class="btn">LogIn</button>
+  </div>
+</div>

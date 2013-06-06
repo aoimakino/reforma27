@@ -1,0 +1,64 @@
+<div class="transbox" xmlns="http://www.w3.org/1999/html">
+  <div class='opacity1'></div>
+  <div class='header'>
+    <h2>Service Order Info</h2>
+  </div>
+  <div class='opacity2'></div>
+  <div class='body'>
+    <h3>
+    <b>Nombre:</b>
+    <%= @client.name %>
+    </br>
+
+    <b>Apellido:</b>
+    <%= @client.last_name %>
+    </br>
+
+    <b>Email:</b>
+    <%= @client.email %>
+    </br>
+
+    <b>Teléfono:</b>
+    <%= @client.phone %>
+    </br>
+
+    <b>Departamento:</b>
+    <%= @client.depto %>
+    </br>
+
+    <b>Creación:</b>
+    <%= @client.date %>
+    </br>
+
+    <b>Estado:</b>
+    <%= @client.status %>
+    </br>
+
+    <b>Puerto Patch Panel:</b>
+    <%= @client.patch %>
+    </br>
+
+    <b>Última modificación:</b>
+    <%= @client.date_modified %>
+    </br>
+
+    <b>Servicio:</b>
+    <%= @service[0].name %>
+    </br>
+
+    <b>Fecha de Corte:</b>
+    <%= Time.now.strftime('1/%h/%Y') %>
+    </br>
+
+    <b>Fecha Límite de Pago:</b>
+    <%= Time.now.strftime('10/%h/%Y') %>
+    </br>
+
+    <b>Estado de Pago:</b>
+    <%= @client.payment_status %>
+    </br>
+
+    </h3>
+<%= link_to 'Back', clients_path, :class=>"btn btn-inverse btn-index" %>
+  </div>
+</div>

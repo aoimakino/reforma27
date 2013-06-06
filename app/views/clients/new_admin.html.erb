@@ -1,0 +1,19 @@
+<div class="transbox" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+  <div class='opacity3'></div>
+  <div class='header'>
+    <h2>Email for activation link</h2>
+  </div>
+  <div class='opacity4'></div>
+  <div class="body">
+    </br>
+    </br>
+    <%= form_tag auto_path do %>
+      <%= text_field_tag :email, params[:email], :placeholder => "Email" %>
+    </br>
+    <%= submit_tag "Send", :class=>"btn btn-large btn-inverse btn-index"%>
+    </br>
+        </br>
+    <%= link_to 'Invitations', authentications_path, class: "btn btn-inverse btn-index" %>
+  <% end %>
+  </div>
+</div>

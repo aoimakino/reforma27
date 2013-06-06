@@ -1,0 +1,20 @@
+<div class="transbox">
+  <div class='opacity3'></div>
+  <div class='header'>
+    <h2>Relationship Info</h2>
+  </div>
+  <div class='opacity4'></div>
+  <div class='body'>
+    <h3>
+      <b>Client:</b>
+      <%= @client_service.client_id %>
+      </br>
+      <b>Service:</b>
+      <%= @client_service.service_id %>
+      </br>
+    </h3>
+    </br>
+    <%= link_to 'Edit', edit_client_service_path(@client_service) %> |
+    <%= link_to 'Back', client_services_path %>
+  </div>
+</div>

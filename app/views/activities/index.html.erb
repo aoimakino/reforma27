@@ -1,0 +1,24 @@
+<div class="transbox" xmlns="http://www.w3.org/1999/html">
+  <div class='opacity3'></div>
+  <div class='header'>
+    <h2>Activity Log</h2>
+  </div>
+  <div class='opacity4'></div>
+  <div class="body">
+     <% @activities.each do |activity| %>
+        <div class="activity">
+        <% if activity.trackable %>
+            <%= link_to activity.owner.name, activity.owner if activity.owner %>
+            Updated Service Order #<%= link_to activity.trackable.id, activity.trackable if activity.trackable %>
+            from client <%= link_to activity.trackable.name, activity.trackable if activity.trackable%>
+            on <%= activity.created_at.strftime('%d/%h/%Y %H:%M') %>
+        <% else %>
+            Service Order Deleted
+        <% end %>
+        </div>
+      <% end %>
+    <%#= link_to 'New Admin', clients_new_admin_path, class: "btn btn-inverse btn-index" %>
+    <%= link_to 'Clients', clients_path, class: "btn btn-inverse btn-index" %>
+    <%= link_to 'Admins', admins_path, class: "btn btn-inverse btn-index" %>
+  </div>
+</div>

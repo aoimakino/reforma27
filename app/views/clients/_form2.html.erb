@@ -1,0 +1,31 @@
+<% if @client.errors.any? %>
+    <div id="error_explanation" xmlns="http://www.w3.org/1999/html">
+      <div class="alert-error">
+        <h2> The form contains <%= pluralize(@client.errors.count, "error") %> : </h2>
+        <% @client.errors.full_messages.each do |msg| %>
+            <h2>* <%= msg %> </h2>
+        <% end %>
+      </div>
+    </div>
+<% end %>
+
+<%= form_for(@client) do |f| %>
+    <div class="field">
+      <%= f.text_field :name, :placeholder => "Nombre(s)"%></br>
+      <%= f.text_field :last_name, :placeholder => "Apellido(s)"%></br>
+      <%= f.email_field :email, :placeholder => "Email"%></br>
+      <%= f.text_field :phone, :placeholder => "Celular"%></br>
+      <%= f.text_field :depto, :placeholder => "Departamento"%></br>
+      <%= f.text_field :patch, :placeholder => "Patch Panel Port"%></br>
+      <%= f.label :status %>
+      <%= f.select :status, [['Pending','Pending'],['Closed','Closed'] ,['Installed','Installed']] %>
+      <%= f.label :date_modified %>
+      <%= f.text_field :date_modified, :id => "datepicker"%>
+      <%= f.label :payment_status %>
+      <%= f.select :payment_status, [['Pendiente','Pendiente'],['Pagado','Pagado'],['Atrasado','Atrasado'] ,['Vencido','Vencido'] ,['Cancelado','Cancelado']] %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Update Order" ,:class=>"btn btn-large btn-inverse btn-index"%>
+    </div>
+<% end %>

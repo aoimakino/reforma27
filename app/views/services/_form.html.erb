@@ -1,0 +1,30 @@
+
+<% if @service.errors.any? %>
+    <div id="error_explanation">
+      <div class="alert-error">
+        <h2> The form contains <%= pluralize(@service.errors.count, "error") %> : </h2>
+        <% @service.errors.full_messages.each do |msg| %>
+            <h2>* <%= msg %> </h2>
+        <% end %>
+      </div>
+    </div>
+<% end %>
+
+
+<%= form_for(@service) do |f| %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    </div>
+    <div class="field">
+    <%= f.label :price %>
+    <%= f.text_field :price %>
+    <div class="field">
+    </div>
+    <%= f.label :tax %>
+    <%= f.text_field :tax %>
+  </div>
+  <div class="actions">
+    <%= f.submit :class=>"btn btn-large btn-inverse btn-index"%>
+  </div>
+<% end %>

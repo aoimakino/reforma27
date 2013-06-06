@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>HTML Invoice Template</title>
+<style type="text/css">
+<!--
+body {
+  font-family:Tahoma;
+}
+
+img {
+  border:0;
+}
+
+#page {
+  width:800px;
+  margin:0 auto;
+  padding:15px;
+
+}
+
+#logo {
+  float:left;
+  margin:0;
+
+}
+
+#address {
+  height:181px;
+  margin-left:250px; 
+}
+
+table {
+  width:100%;
+}
+
+td {
+padding:5px;
+}
+
+tr.odd {
+  background:#C92C8F;
+  color:#fff;
+}
+-->
+</style>
+</head>
+<body>
+<div id="page">
+  <div id="logo">
+    <a href="http://www.danifer.com/"><img src="http://174.127.115.243/wp-content/uploads/2011/10/2kiwi_logo75.png" height="85"></a>
+  </div><!--end logo-->
+  
+  <div id="address">
+
+    Kiwi Networks<br />
+    <a href="mailto:r27@kiwinetworks.com">r27@kiwinetworks.com</a>
+    <br />
+    <br />
+    Fecha de emision: <%= I18n.localize (Time.now), :format => '01-%B-%Y'%><br />
+    Lugar de emision: Mexico D.F.<br />
+    </p>
+  </div><!--end address-->
+    <center><strong>ESTIMADO USUARIO</strong>, LE RECORDAMOS QUE SU FECHA LIMITE DE PAGO ES <%= I18n.localize (Time.now), :format => '10-%B-%Y'%> LE INVITAMOS A REALIZAR SU PAGO A LA BREVEDAD, DE LO CONTRARIO NOS VEREMOS EN LA PENOSA NECESIDAD DE SUSPENDER SU SERVICIO, GRACIAS.</center>
+    <br />
+    <br />
+    <br />
+  <div id="content">
+     <table>
+      <p><tr><td>
+      <strong>Detalles del Cliente</strong><br />
+      Nombre: <%= @client.name %> <%= @client.last_name %><br />
+      Email: <%= @client.email %><br />
+      Telefono: <%= @client.phone %><br />
+      Departamento: <%= @client.depto %><br /> 
+      </td>
+     
+      <p><td>
+      <strong>Detalles de Pago</strong><br />
+      Periodo: <%= I18n.localize (Time.now-1.month), :format => '01-%B-%Y'%> al <%= I18n.localize (Time.now), :format => '01-%B-%Y'%><br />
+      Fecha limite de pago: <%= I18n.localize (Time.now), :format => '10-%B-%Y'%><br />
+      Importe a pagar: $ <%= number_with_precision(@service[0].price.to_f * (1 + @service[0].tax.to_f/100), :precision => 2)  %><br />
+      </td></tr></p>
+    </table>
+
+    <br />
+    <br />
+    <br />
+    <hr>
+    <table>
+      <tr><td>Periodo</td><td><strong></strong></td><td><strong></strong></td><td><%= I18n.localize (Time.now-1.month), :format => '01-%B-%Y'%> al <%= I18n.localize (Time.now), :format => '01-%B-%Y'%></td></tr>
+      <tr class="odd"><td><strong>Servicio</strong></td><td><strong>Tipo</strong></td><td><strong>Cantidad</strong></td><td><strong>Precio</strong></td></tr> 
+      <tr class="even"><td>Kiwi Residencial</td><td><%= @service[0].name %></td><td>1</td><td>$ <%= number_with_precision(@service[0].price, :precision => 2) %></td></tr><tr class="odd"><td>+ IVA <%= @service[0].tax %>%</td><td>&nbsp;</td><td>&nbsp;</td><td>$ <%= number_with_precision(@service[0].price.to_f * (@service[0].tax.to_f/100), :precision => 2)  %></td></tr>              <tr><td>&nbsp;</td><td>&nbsp;</td><td><strong>Total</strong></td><td><strong>
+      $ <%= number_with_precision(@service[0].price.to_f * (1 + @service[0].tax.to_f/100), :precision => 2)  %></strong></td></tr>
+
+    </table>
+    <hr>
+    <p>
+      
+      Si tienes alguna duda o sugerencia, puedes contactarnos al telefono movil 5520253793 o escribenos a <a href="mailto:r27@kiwinetworks.com">r27@kiwinetworks.com</a>.
+    </p>
+
+    <hr>
+    <p>
+      <center><small>Opciones de pago: </br>
+
+        1. Ingresando a www.r27.com y registrandote en "Mi
+R27" (Seccion "Pagar Servicios").
+2. En Centros de Atencion Especializada.
+3. En tu banco.
+4. Marcando desde tu celular *611
+5. Cargo automatico a tarjeta de credito.
+      <br /><br />
+      &copy; Kiwinetworks todos los derechos reservados
+      </small></center>
+    </p>
+  </div><!--end content-->
+</div><!--end page-->
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<% 
+  if session[:validate]
+%>
+<div class="transbox" xmlns="http://www.w3.org/1999/html">
+  <div class='opacity1'></div>
+  <div class='header'>
+    <h2>Sign up</h2>
+  </div>
+  <div class='opacity2'></div>
+  <div class="body">
+    <h2>
+      <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+      <p><%= devise_error_messages! %></p>
+
+      <div>
+      <%= f.text_field :name, :placeholder => "Name" %></br>
+
+      <%= f.text_field :last_name, :placeholder => "Last Name" %></br>
+
+      <%= f.email_field :email, :placeholder => "Email" %></br>
+
+      <%= f.password_field :password , :placeholder => "Password" %></br>
+
+      <%= f.password_field :password_confirmation, :placeholder => "Password Confirmation" %></div>
+
+      <div><%= f.submit "Sign up", :class=>'btn btn-large btn-inverse btn-index' %></div>
+      <% end %>
+    </h2>
+      <%#= render "devise/shared/links" %>
+  </div>
+</div>
+<%else%>
+  <script type='text/javascript'>
+        window.location =  "/"
+  </script>
+<%
+end
+session[:validate] = nil
+%>

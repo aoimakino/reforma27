@@ -1,0 +1,26 @@
+<div class="transbox">
+  <div class='opacity1'></div>
+  <div class='header'>
+    <h2>Service Info</h2>
+  </div>
+  <div class='opacity2'></div>
+  <div class='body'>
+    <h3>
+  <b>Name:</b>
+  <%= @service.name %>
+</br>
+  <b>Price:</b>
+  <%= @service.price %>
+ </br>
+  <b>Tax:</b>
+  <%= @service.tax %>
+ </br>
+
+</h3>
+    </br>
+    <%= link_to 'Edit', edit_service_path(@service), :class=>"btn btn-inverse btn-index" %>
+    </br>
+    </br>
+    <%= link_to 'Back', services_path, :class=>"btn btn-inverse btn-index" %>
+  </div>
+</div>

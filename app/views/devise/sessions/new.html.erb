@@ -1,0 +1,25 @@
+<div class="transbox">
+  <div class='opacity1'></div>
+  <div class='header'>
+    <h2>Sign in</h2>
+  </div>
+  <div class='opacity2'></div>
+  <div class="body">
+    <h2>
+        <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+         <div>
+         </br>
+         <%= f.email_field :email, :placeholder => "Email"%></br>
+         <%= f.password_field :password, :placeholder => "Password" %></br>
+         </br>
+         </div>
+     </h2>
+        <div>
+          <%= f.submit "Sign in" ,:class=>"btn btn-large btn-inverse btn-index" %></br>
+        </div>
+        <% end %>
+        </br>
+
+         <%#= render "devise/shared/links" %>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<%= form_for(@client_service) do |f| %>
+  <% if @client_service.errors.any? %>
+        <div id="error_explanation" xmlns="http://www.w3.org/1999/html">
+      <h2><%= pluralize(@client_service.errors.count, "error") %> prohibited this client_service from being saved:</h2>
+
+      <ul>
+      <% @client_service.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :client_id %>
+    <%= f.text_field :client_id %>
+    </br>
+    <%= f.label :service_id %>
+    <%= f.text_field :service_id %>
+  </div>
+    </br>
+
+    <div class="actions">
+    <%= f.submit :class=>"btn btn-large btn-inverse btn-index" %>
+  </div>
+<% end %>

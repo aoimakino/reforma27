@@ -1,0 +1,41 @@
+ 
+  <% if @client.errors.any? %>
+    <div id="error_explanation">
+      <div class="alert-error">
+        <h2> The form contains <%= pluralize(@client.errors.count, "error") %> : </h2>
+        <% @client.errors.full_messages.each do |msg| %>
+            <h2>* <%= msg %> </h2>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
+<%= form_for(@client) do |f| %>
+  <div class="field">
+        <%= f.text_field :name, :placeholder => "Nombre(s)"%>
+  </div>
+  <div class="field">
+    <%= f.text_field :last_name, :placeholder => "Apellido(s)"%>
+  </div>
+  <div class="field">
+        <%= f.email_field :email, :placeholder => "Email"%>
+  </div>
+  <div class="field">
+        <%= f.text_field :phone, :placeholder => "Celular"%>
+  </div>
+  <div class="field">
+        <%= f.text_field :depto, :placeholder => "Departamento"%>
+  </div>
+  <div class="field" style="display: none">
+      <%= f.label :status %><br />
+      <%= f.select :status, [['Pending','Pending'],['Closed','Closed'] ,['Installed','Installed']] %>
+      <%= f.label :date %>
+      <%= f.text_field :date, :value => Time.now.strftime('%m/%d/%Y')%>
+      <%= f.label :payment_status %><br />
+      <%= f.select :payment_status, [['Pendiente','Pendiente'],['Pagado','Pagado'],['Atrasado','Atrasado'] ,['Vencido','Vencido'] ,['Cancelado','Cancelado']] %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Contratar!" ,:class=>"btn btn-large btn-inverse btn-index"%>
+  </div>
+<% end %>

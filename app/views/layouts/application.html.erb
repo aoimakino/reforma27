@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="shortcut icon" href="/kiwi.ico" />
+    <%= stylesheet_link_tag    "application", media: "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script>
+        $(function() {
+            $( "#datepicker" ).datepicker();
+        });
+    </script>
+
+ <title>R27</title>
+  </head>
+  
+  <body>
+    <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="navbar-inner">
+        <div class="container">
+          <ul class="nav pull-left">
+            <%=link_to image_tag("kiwi.png", alt: "kiwi", :size => "70x70"), root_path%>
+          </ul> 
+
+          <div class="brand">
+            Reforma 27
+          </div>
+          
+            <ul class="nav pull-right">
+              <li><% if admin_signed_in? %>
+                    <%= link_to "Logout", destroy_admin_session_path, :method => :delete %>
+                <% else %>
+                    <%= link_to "Login", new_admin_session_path %>
+                <% end %>
+              </li>
+            </ul>
+        </div>
+      </div>
+    </header>
+   
+    <div class="container">
+
+
+<% flash.each do |name, msg| %>  
+    <%= content_tag :div, msg, :id => "flash#{name}" %>  
+  <% end %>
+      <%= yield %>
+    </div>
+
+   
+</div>
+  </body>
+</html>
+

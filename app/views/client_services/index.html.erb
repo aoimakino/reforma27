@@ -1,0 +1,35 @@
+<div class="transbox" xmlns="http://www.w3.org/1999/html">
+  <div class='opacity3'></div>
+  <div class='header'>
+    <h2>Listing Relations</h2>
+  </div>
+  <div class='opacity4'></div>
+  <div class="body">
+
+      <table class="relations">
+      <tr>
+        <th>Client</th>
+        <th>Service</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+
+      <% @client_services.each do |client_service| %>
+      <tr>
+        <td><%= client_service.client_id %></td>
+        <td><%= client_service.service_id %></td>
+        <td><%= link_to 'Show', client_service, class: "btn btn-small btn-inverse" %></td>
+        <td><%= link_to 'Edit', edit_client_service_path(client_service), class: "btn btn-small btn-inverse" %></td>
+        <td><%= link_to 'Destroy', client_service, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-small btn-inverse" %></td>
+      </tr>
+      <% end %>
+      </table>
+      <br/>
+
+      <%= link_to 'New Relation', new_client_service_path, class: "btn btn-inverse btn-index" %>
+      </br>
+      </br>
+      <%= link_to 'Admins', admins_path, class: "btn btn-inverse btn-index" %>
+  </div>
+</div>

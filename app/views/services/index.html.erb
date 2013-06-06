@@ -1,0 +1,40 @@
+<div class="transbox" xmlns="http://www.w3.org/1999/html">
+  <div class='opacity3'></div>
+  <div class='header'>
+    <h2>Listing Services</h2>
+  </div>
+  <div class='opacity4'></div>
+  <div class="body">
+
+  <table class="services">
+  <tr>
+    <th><%= sortable "name" %></th>
+    <th><%= sortable "price" %></th>
+    <th><%= sortable "tax" %></th>
+    <th><%= sortable "total" %></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @services.each do |service| %>
+  <tr>
+    <td><%= service.name %></td>
+    <td>$<%= service.price %>.00</td>
+    <td><%= service.tax %>%</td>
+    <td><%= number_with_precision(service.price.to_f * (1 + service.tax.to_f/100), :precision => 2)  %></td>
+    <td><%= link_to 'Show', service, class: "btn btn-small btn-inverse" %></td>
+    <td><%= link_to 'Edit', edit_service_path(service), class: "btn btn-small btn-inverse" %></td>
+    <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-small btn-inverse" %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Service', new_service_path, class: "btn btn-inverse btn-index" %>
+    </br>
+    </br>
+<%= link_to 'Admins', admins_path, class: "btn btn-inverse btn-index" %>
+  </div>
+</div>

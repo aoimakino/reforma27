@@ -1,0 +1,45 @@
+<div class="transbox2">
+  <div class='opacity3'></div>
+  <div class='header'>
+    <h2>Pagos</h2>
+  </div>
+  <div class='opacity4'></div>
+  <div class="body">
+    <table>
+      <tr>
+      <th><%= sortable "name", "Nombre" %></th>
+      <th><%= sortable "last_name", "Apellido" %></th>
+      <th><%= sortable "email" %></th>
+      <th><%= sortable "depto", "Dep." %></th>
+      <th><%= sortable "service", "Servicio" %></th>
+      <th>Fecha de corte</th>
+      <th>Fecha de pago</th>
+      <th><%= sortable "payment_status", "Estado de Pago"%></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      </tr>
+
+      <% @clients.each do |client| %>
+      <%@client_services = ClientService.find(:all, :conditions => ['client_id = ?', client.id]) %>
+      <%@service = Service.find(:all, :conditions => ['id = ?', @client_services[0].service_id]) %>
+      <tr>
+      <td><%= client.name %></td>
+      <td><%= client.last_name %></td>
+      <td><%= client.email %></td>
+      <td><%= client.depto %></td>
+      <td><%= @service[0].name %></td>
+      <td><%= Time.now.strftime('1/%h/%Y') %></td>
+      <td><%= Time.now.strftime('10/%h/%Y') %></td>
+      <td><%= client.payment_status%></td>
+      <td><%= link_to 'Show', client , class: "btn btn-small btn-inverse"%></td>
+      <td><%= link_to 'Edit', edit_client_path(client), class: "btn btn-small btn-inverse" %></td>
+      <td><%= link_to 'Delete', client, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-small btn-inverse" %></td>
+      </tr>
+      <% end %>
+    </table> <br />
+
+  <%#= link_to 'New Admin', clients_new_admin_path, class: "btn btn-inverse btn-index" %>
+  <%= link_to 'Clientes', clients_path, class: "btn btn-inverse btn-index" %>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<h3>Type your email to solicit an account</h3>
+<%= form_tag send_sol_path do %> 
+  <p>  
+    <%= label_tag :email %><br />  
+    <%= text_field_tag :email, params[:email] %>  
+  </p>  
+  
+  <p class="button"><%= submit_tag "send" %> </p>  
+
+<% end %>
+
+

@@ -1,0 +1,29 @@
+<div class="transbox" xmlns="http://www.w3.org/1999/html">
+  <div class='opacity1'></div>
+  <div class='header'>
+    <h2>Admin Info</h2>  </div>
+  <div class='opacity2'></div>
+  <div class='body'>
+    <h3>
+    <b>Name:</b>
+    <%= @admin.name %>
+    </br>
+
+    <b>Last name:</b>
+    <%= @admin.last_name %>
+    </br>
+    <b>Password:</b>
+    <%= @admin.password %>
+    </br>
+
+    <b>Email:</b>
+    <%= @admin.email %>
+    </h3>
+    <%= link_to 'Back', admins_path, :class=>"btn btn-inverse btn-index" %>
+    </br>
+    </br>
+
+    <%= link_to 'Edit', edit_admin_path(@admin) %> |
+<%= link_to 'Show Orders', clients_path %>
+  </div>
+</div>

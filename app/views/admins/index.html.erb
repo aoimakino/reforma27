@@ -1,0 +1,35 @@
+<div class="transbox" xmlns="http://www.w3.org/1999/html">
+  <div class='opacity3'></div>
+  <div class='header'>
+    <h2>Listing admins</h2>
+  </div>
+  <div class='opacity4'></div>
+  <div class="body">
+    <table class="admins">
+    <tr>
+    <th><%= sortable "name" %></th>
+    <th><%= sortable "last_name" %></th>
+    <th><%= sortable "email" %></th>
+    <th></th>
+    <th></th>
+    <th></th>
+    </tr>
+
+    <% @admins.each do |admin| %>
+    <tr>
+    <td><%= admin.name %></td>
+    <td><%= admin.last_name %></td>
+    <td><%= admin.email %></td>
+    <td><%= link_to 'Show', admin, class: "btn btn-small btn-inverse" %></td>
+    <td><%= link_to 'Edit', edit_admin_path(admin), class: "btn btn-small btn-inverse" %></td>
+    <td><%= link_to 'Delete', admin, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-small btn-inverse" %></td>
+  </tr>
+    <% end %>
+    </table> <br />
+
+<%= link_to 'New Admin', clients_new_admin_path, class: "btn btn-inverse btn-index"%>
+<%= link_to 'Activity Log', activities_path, class: "btn btn-inverse btn-index"%>
+<%= link_to 'Clients', clients_path, class: "btn btn-inverse btn-index" %>
+<%= link_to 'Services', services_path, class: "btn btn-inverse btn-index" %>
+  </div>
+</div>

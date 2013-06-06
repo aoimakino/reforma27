@@ -1,0 +1,28 @@
+<div class="transbox" xmlns="http://www.w3.org/1999/html">
+  <div class='opacity3'></div>
+  <div class='header'>
+    <h2>Listing Invitations</h2>
+  </div>
+  <div class='opacity4'></div>
+  <div class="body">
+    <table class='invitations'>
+      <tr>
+       <th>Email</th>
+       <th>Pass</th>
+       <th>Created</th>
+       <th></th>
+      </tr>
+
+      <% @authentications.each do |authentication| %>
+      <tr>
+        <td><%= authentication.email %></td>
+        <td><%= authentication.pass %></td>
+        <td><%= authentication.created_at.strftime('%d/%h/%Y') %></td>
+        <td><%= link_to 'Destroy', authentication, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-small btn-inverse"%></td>
+      </tr>
+      <% end %>
+    </table>
+     <br />
+    <%= link_to 'Admins', admins_path, class: "btn btn-inverse btn-index" %>
+  </div>
+</div>
