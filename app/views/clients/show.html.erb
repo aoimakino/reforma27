@@ -42,6 +42,21 @@
     <%= @client.date_modified %>
     </br>
 
+    <b>Servicio:</b>
+    <%= @service.name %>
+    </br>
+
+    <b>Fecha de Corte:</b>
+    <%= Time.now.strftime('1/%h/%Y') %>
+    </br>
+
+    <b>Fecha Límite de Pago:</b>
+    <%= Time.now.strftime('10/%h/%Y') %>
+    </br>
+
+    <b>Estado de Pago:</b>
+    <%= @client.payment_status %>
+    </br>
 
     </h3>
 <%= link_to 'Back', clients_path, :class=>"btn btn-inverse btn-index" %>

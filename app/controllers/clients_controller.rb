@@ -31,8 +31,9 @@ class ClientsController < ApplicationController
   # GET /clients/1.json
   def show
     @client = Client.find(params[:id])
-    @client_services = ClientService.where(:client_id => @client.id)
-    @service = Service.find(@client_services[0].service_id)
+    #@client_services = ClientService.where(:client_id => @client.id)
+    @client_services = @client.client_services
+    @service = Service.find(@client_services.first.service_id)
 
     respond_to do |format|
       format.html # show.html.erb
