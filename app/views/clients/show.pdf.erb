@@ -77,7 +77,7 @@ tr.odd {
       <strong>Detalles de Pago</strong><br />
       Periodo: <%= I18n.localize (Time.now-1.month), :format => '01-%B-%Y'%> al <%= I18n.localize (Time.now), :format => '01-%B-%Y'%><br />
       Fecha limite de pago: <%= I18n.localize (Time.now), :format => '10-%B-%Y'%><br />
-      Importe a pagar: $ <%= number_with_precision(@service[0].price.to_f * (1 + @service[0].tax.to_f/100), :precision => 2)  %><br />
+      Importe a pagar: $ <%= number_with_precision(@service.price.to_f * (1 + @service.tax.to_f/100), :precision => 2)  %><br />
       </td></tr></p>
     </table>
 
@@ -88,8 +88,8 @@ tr.odd {
     <table>
       <tr><td>Periodo</td><td><strong></strong></td><td><strong></strong></td><td><%= I18n.localize (Time.now-1.month), :format => '01-%B-%Y'%> al <%= I18n.localize (Time.now), :format => '01-%B-%Y'%></td></tr>
       <tr class="odd"><td><strong>Servicio</strong></td><td><strong>Tipo</strong></td><td><strong>Cantidad</strong></td><td><strong>Precio</strong></td></tr> 
-      <tr class="even"><td>Kiwi Residencial</td><td><%= @service[0].name %></td><td>1</td><td>$ <%= number_with_precision(@service[0].price, :precision => 2) %></td></tr><tr class="odd"><td>+ IVA <%= @service[0].tax %>%</td><td>&nbsp;</td><td>&nbsp;</td><td>$ <%= number_with_precision(@service[0].price.to_f * (@service[0].tax.to_f/100), :precision => 2)  %></td></tr>              <tr><td>&nbsp;</td><td>&nbsp;</td><td><strong>Total</strong></td><td><strong>
-      $ <%= number_with_precision(@service[0].price.to_f * (1 + @service[0].tax.to_f/100), :precision => 2)  %></strong></td></tr>
+      <tr class="even"><td>Kiwi Residencial</td><td><%= @service.name %></td><td>1</td><td>$ <%= number_with_precision(@service.price, :precision => 2) %></td></tr><tr class="odd"><td>+ IVA <%= @service.tax %>%</td><td>&nbsp;</td><td>&nbsp;</td><td>$ <%= number_with_precision(@service.price.to_f * (@service.tax.to_f/100), :precision => 2)  %></td></tr>              <tr><td>&nbsp;</td><td>&nbsp;</td><td><strong>Total</strong></td><td><strong>
+      $ <%= number_with_precision(@service.price.to_f * (1 + @service.tax.to_f/100), :precision => 2)  %></strong></td></tr>
 
     </table>
     <hr>
