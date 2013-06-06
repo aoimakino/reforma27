@@ -46,14 +46,6 @@
     <%= @service[0].name %>
     </br>
 
-    <b>Fecha de Corte:</b>
-    <%= Time.now.strftime('1/%h/%Y') %>
-    </br>
-
-    <b>Fecha Límite de Pago:</b>
-    <%= Time.now.strftime('10/%h/%Y') %>
-    </br>
-
     <b>Estado de Pago:</b>
     <%= @client.payment_status %>
     </br>
