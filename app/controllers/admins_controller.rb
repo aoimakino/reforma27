@@ -1,6 +1,6 @@
 class AdminsController < ApplicationController
-  before_filter :authenticate_admin!, :except => [:validation]
-  before_filter :authenticate, :only => [:validation]
+  #before_filter :authenticate_admin!, :except => [:validation]
+  #before_filter :authenticate, :only => [:validation]
   # GET /admins
   # GET /admins.json
 
